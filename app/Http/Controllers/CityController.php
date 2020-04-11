@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\State;
+use App\Http\Requests\CityRequest;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -14,7 +16,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+        $cities = City::all();
+        return view('city.index', ['cities' => $cities]);
     }
 
     /**
@@ -24,7 +27,8 @@ class CityController extends Controller
      */
     public function create()
     {
-        //
+        $states = State::all();
+        return view('city.create', ['states' => $states, 'city' => new City()]);
     }
 
     /**
@@ -33,9 +37,13 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CityRequest $request)
     {
-        //
+        $city = new City();
+        $city->name = $request->name;
+        $city->state_id = $request->state;
+        $city->save();
+        return redirect()->route('city.index');
     }
 
     /**
@@ -57,7 +65,8 @@ class CityController extends Controller
      */
     public function edit(City $city)
     {
-        //
+        $states = State::all();
+        return view('city.edit', compact('states', 'city'));
     }
 
     /**
@@ -67,9 +76,14 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, City $city)
+    public function update(CityRequest $request, City $city)
     {
-        //
+        $city->update([
+            'name' => $request->name,
+            'state_id' => $request->state
+        ]);
+
+        return redirect()->route('city.index');
     }
 
     /**
