@@ -22,7 +22,6 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        dd($request->store('signature'));
         User::create([
             'cpf' => $request->cpf,
             'name' => $request->name,
@@ -36,16 +35,16 @@ class UserController extends Controller
 
     public function edit()
     {
-
+        //
     }
 
     public function update()
     {
-
+        //
     }
 
     public function delete()
     {
-
+        //
     }
 }
