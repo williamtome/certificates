@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function ()
+{
     return view('auth.login');
 });
 
@@ -19,7 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'city'], function (){
+Route::group(['prefix' => 'city'], function ()
+{
     Route::get('/index', 'CityController@index')->name('city.index');
     Route::get('/create', 'CityController@create')->name('city.create');
     Route::post('/store', 'CityController@store')->name('city.store');
@@ -27,7 +29,8 @@ Route::group(['prefix' => 'city'], function (){
     Route::get('/update/{city}', 'CityController@update')->name('city.update');
 });
 
-Route::group(['prefix' => 'entity'], function (){
+Route::group(['prefix' => 'entity'], function ()
+{
     Route::get('/index', 'EntityController@index')->name('entity.index');
     Route::get('/create', 'EntityController@create')->name('entity.create');
     Route::post('/store', 'EntityController@store')->name('entity.store');
@@ -35,7 +38,8 @@ Route::group(['prefix' => 'entity'], function (){
     Route::put('/update/{entity}', 'EntityController@update')->name('entity.update');
 });
 
-Route::group(['prefix' => 'user'], function (){
+Route::group(['prefix' => 'user'], function ()
+{
     Route::get('/index', 'UserController@index')->name('user.index');
     Route::get('/create', 'UserController@create')->name('user.create');
     Route::post('/store', 'UserController@store')->name('user.store');
