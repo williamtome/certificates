@@ -10,8 +10,7 @@
                 <div class="card-body">
                     <ul>
                         <li><a href="{{ route('city.index') }}">Cadastro de Cidades</a></li>
-                        <li><a href=""></a></li>
-                        <li><a href=""></a></li>
+                        <li><a href="{{ route('entity.index') }}">Cadastro de Entidades</a></li>
                     </ul>
                 </div>
             </div>
