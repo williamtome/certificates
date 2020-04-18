@@ -34,3 +34,11 @@ Route::group(['prefix' => 'entity'], function (){
     Route::get('/edit/{entity}', 'EntityController@edit')->name('entity.edit');
     Route::put('/update/{entity}', 'EntityController@update')->name('entity.update');
 });
+
+Route::group(['prefix' => 'user'], function (){
+    Route::get('/index', 'UserController@index')->name('user.index');
+    Route::get('/create', 'UserController@create')->name('user.create');
+    Route::post('/store', 'UserController@store')->name('user.store');
+    Route::get('/edit/{user}', 'UserController@edit')->name('user.edit');
+    Route::put('/update/{user}', 'UserController@update')->name('user.update');
+});
