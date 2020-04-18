@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entity;
+use App\Http\Requests\EntityRequest;
 use Illuminate\Http\Request;
 
 class EntityController extends Controller
@@ -14,7 +15,8 @@ class EntityController extends Controller
      */
     public function index()
     {
-        //
+        $entities = Entity::all();
+        return view('entity.index', compact('entities'));
     }
 
     /**
@@ -24,7 +26,7 @@ class EntityController extends Controller
      */
     public function create()
     {
-        //
+        return view('entity.create', ['entity' => new Entity()]);
     }
 
     /**
@@ -33,9 +35,10 @@ class EntityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EntityRequest $request)
     {
-        //
+        Entity::create(['prefix' => $request->prefix, 'name' => $request->name]);
+        return redirect()->route('entity.index');
     }
 
     /**
@@ -57,7 +60,7 @@ class EntityController extends Controller
      */
     public function edit(Entity $entity)
     {
-        //
+        return view('entity.edit', compact('entity'));
     }
 
     /**
@@ -67,9 +70,14 @@ class EntityController extends Controller
      * @param  \App\Entity  $entity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entity $entity)
+    public function update(EntityRequest $request, Entity $entity)
     {
-        //
+        $entity->update([
+            'name' => $request->name,
+            'prefix' => $request->prefix
+        ]);
+
+        return redirect()->route('entity.index');
     }
 
     /**
