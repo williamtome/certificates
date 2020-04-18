@@ -32,5 +32,5 @@ Route::group(['prefix' => 'entity'], function (){
     Route::get('/create', 'EntityController@create')->name('entity.create');
     Route::post('/store', 'EntityController@store')->name('entity.store');
     Route::get('/edit/{entity}', 'EntityController@edit')->name('entity.edit');
-    Route::get('/update/{entity}', 'EntityController@update')->name('entity.update');
+    Route::put('/update/{entity}', 'EntityController@update')->name('entity.update');
 });
