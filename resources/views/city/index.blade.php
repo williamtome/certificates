@@ -6,11 +6,15 @@
     <br>
 
     <a href="{{route('city.create')}}" class="btn btn-primary pull-right">Nova Cidade</a>
+
+    <a href="{{route('home')}}" class="btn btn-default"> Voltar</a>
+
     <table class="table table-striped">
         <thead>
         <tr>
             <th>Nome</th>
             <th>Estado (UF)</th>
+            <th>Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -20,7 +24,6 @@
                 <td>{{ $city->state->name }}</td>
                 <td>
                     <a href="{{ route('city.edit', $city->id) }}">Editar</a>
-{{--                    <a href="{{ route('city.show', ['city' => $city->id]) }}">Ver</a>--}}
                 </td>
             </tr>
         @endforeach
