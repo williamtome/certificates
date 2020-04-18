@@ -26,3 +26,11 @@ Route::group(['prefix' => 'city'], function (){
     Route::get('/edit/{city}', 'CityController@edit')->name('city.edit');
     Route::get('/update/{city}', 'CityController@update')->name('city.update');
 });
+
+Route::group(['prefix' => 'entity'], function (){
+    Route::get('/index', 'EntityController@index')->name('entity.index');
+    Route::get('/create', 'EntityController@create')->name('entity.create');
+    Route::post('/store', 'EntityController@store')->name('entity.store');
+    Route::get('/edit/{entity}', 'EntityController@edit')->name('entity.edit');
+    Route::get('/update/{entity}', 'EntityController@update')->name('entity.update');
+});
