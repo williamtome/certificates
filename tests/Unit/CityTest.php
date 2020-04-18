@@ -1,17 +1,14 @@
 <?php
 
+namespace Tests\Unit;
+
 use PHPUnit\Framework\TestCase;
+use App\City;
 
-class CityTest extends TestCase{
-
+class CityTest extends TestCase
+{
     public function testIfExistsAttribute()
     {
-        $this->assertClassHasAttribute('table', App\City::class);
+        $this->assertClassHasAttribute('table', City::class);
     }
-
-    public function FunctionName(Type $var = null)
-    {
-        # code...
-    }
-
 }
