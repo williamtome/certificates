@@ -28,6 +28,7 @@
         </div>
     </div>
 </div>
+@if (!$user->id)
 <div class="row">
     <div class="col-md-4">
         <label for="password">Senha</label>
@@ -51,4 +52,15 @@
         @enderror
     </div>
 </div>
+@else
+<div class="row">
+    <div class="col-md-4">
+        <label for="signature">Assinatura</label>
+        <input type="file" name="signature" id="signature" class="form-control">
+        @error('signature')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+</div>
+@endif
 
