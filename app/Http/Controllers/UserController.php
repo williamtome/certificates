@@ -33,14 +33,16 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
-    public function edit()
+    public function edit(User $user)
     {
-        //
+        return view('user.edit', compact('user'));
     }
 
-    public function update()
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $user->fill($request->all());
+        $user->save();
+        return redirect()->route('user.index');
     }
 
     public function delete()
