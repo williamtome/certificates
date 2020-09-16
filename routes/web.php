@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+   return view('auth.login');
 });
 
 Auth::routes();
@@ -24,7 +24,8 @@ Route::group(['prefix' => 'city'], function () {
     Route::get('/create', 'CityController@create')->name('city.create');
     Route::post('/store', 'CityController@store')->name('city.store');
     Route::get('/edit/{city}', 'CityController@edit')->name('city.edit');
-    Route::get('/update/{city}', 'CityController@update')->name('city.update');
+    Route::put('/update/{city}', 'CityController@update')->name('city.update');
+    Route::get('/delete/{city}', 'CityController@destroy')->name('city.destroy');
 });
 
 Route::group(['prefix' => 'entity'], function () {
@@ -41,4 +42,12 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/store', 'UserController@store')->name('user.store');
     Route::get('/edit/{user}', 'UserController@edit')->name('user.edit');
     Route::put('/update/{user}', 'UserController@update')->name('user.update');
+});
+
+Route::group(['prefix' => 'template'], function () {
+    Route::get('/index', 'TemplateController@index')->name('template.index');
+    Route::get('/create', 'TemplateController@create')->name('template.create');
+    Route::post('/store', 'TemplateController@store')->name('template.store');
+    Route::get('/edit/{template}', 'TemplateController@edit')->name('template.edit');
+    Route::put('/update/{template}', 'TemplateController@update')->name('template.update');
 });
