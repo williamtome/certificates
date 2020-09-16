@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TemplateRequest;
 use App\Template;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        //
+        $template = Template::all();
+        return view('template.index', ['template' => $template]);
     }
 
     /**
@@ -24,7 +26,7 @@ class TemplateController extends Controller
      */
     public function create()
     {
-        //
+        return view('template.create', ['template' => new Template()]);
     }
 
     /**
@@ -33,9 +35,14 @@ class TemplateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TemplateRequest $request)
     {
-        //
+        Template::create([
+            'title' => $request->title,
+            'front'=> $request->front,
+            'back'=> $request->back
+        ]);
+        return redirect()->route('template.index');
     }
 
     /**
