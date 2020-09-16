@@ -25,6 +25,9 @@
                 <td>
                     <a href="{{ route('city.edit', $city->id) }}">Editar</a>
                 </td>
+                <td>
+                    <a href="{{ route('city.destroy', $city->id) }}">Excluir</a>
+                </td>
             </tr>
         @endforeach
         </tbody>
