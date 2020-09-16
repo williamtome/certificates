@@ -12,6 +12,7 @@
                         <li><a href="{{ route('city.index') }}">Cadastro de Cidades</a></li>
                         <li><a href="{{ route('entity.index') }}">Cadastro de Entidades</a></li>
                         <li><a href="{{ route('user.index') }}">Cadastro de Usuários</a></li>
+                        <li><a href="{{ route('template.index') }}">Cadastro de Templates</a></li>
                     </ul>
                 </div>
             </div>
