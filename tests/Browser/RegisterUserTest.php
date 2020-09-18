@@ -9,7 +9,7 @@ use Tests\DuskTestCase;
 class RegisterUserTest extends DuskTestCase
 {
     /** @test */
-    public function check_if_root_site_is_correct()
+    public function checkIfRootSiteIsCorrect()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
@@ -18,9 +18,9 @@ class RegisterUserTest extends DuskTestCase
     }
 
     /** @test */
-    public function check_if_login_function_is_working()
+    public function checkIfLoginFunctionIsWorking()
     {
-        $this->browse(function(Browser $browser){
+        $this->browse(function (Browser $browser) {
             $browser->visit('/ ')
                 ->type('email', 'william.tomenh@gmail.com')
                 ->type('password', 'w1ll@2020')
@@ -30,9 +30,9 @@ class RegisterUserTest extends DuskTestCase
     }
 
     /** @test */
-    public function check_if_register_function_is_working()
+    public function checkIfRegisterFunctionIsWorking()
     {
-        $this->browse(function (Browser $browser){
+        $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('name', 'User test')
                 ->type('cpf', '43968374029')

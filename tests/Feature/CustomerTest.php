@@ -9,7 +9,7 @@ use Tests\TestCase;
 class CustomerTest extends TestCase
 {
     /** @test */
-    public function only_user_logged_in_users_can_see_customers_list()
+    public function onlUserLoggedInUsersCanSeeCustomersList()
     {
         $response = $this->get('/customers')->assertRedirect('/login');
     }
